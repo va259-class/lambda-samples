@@ -35,6 +35,16 @@ namespace Vektorel.ArrowFunctions
                 var avg = movies.GetRatingAveragebyCountry(country);
                 Console.WriteLine("{0,-15} {1}", country, avg);
             }
+            Console.WriteLine("Temizlemek için bir tuşa basınız");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("Tüm Filmler");
+            ConsoleTableHelper.PrintMoviesTable(movies);
+
+            // 2018 yılında çıkan filmler
+            movies.GetByYear(2018);
+            // Rating'i 8.5 üstü olanlar
+            // Bilim Kurgu filmleri
         }
     }
 }
