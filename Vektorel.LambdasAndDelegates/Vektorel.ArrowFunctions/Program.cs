@@ -44,7 +44,9 @@ namespace Vektorel.ArrowFunctions
             // 2018 yılında çıkan filmler
             movies.GetByYear(2018);
             // Rating'i 8.5 üstü olanlar
+            movies.GetByRating(8.5M);
             // Bilim Kurgu filmleri
+            movies.GetByGenre(Genre.SciFi);
         }
     }
 }

@@ -54,8 +54,7 @@ namespace Vektorel.ArrowFunctions
             Console.WriteLine("+" + string.Join("+", widths.Select(w => new string('-', w))) + "+");
         }
 
-        private static void PrintRow(int idW, int titleW, int yearW, int genreW, int countryW, int ratingW,
-                                     string id, string title, string year, string genre, string country, string rating)
+        private static void PrintRow(int idW, int titleW, int yearW, int genreW, int countryW, int ratingW, string id, string title, string year, string genre, string country, string rating)
         {
             Console.WriteLine(
                 $"|{id.PadRight(idW)}" +
