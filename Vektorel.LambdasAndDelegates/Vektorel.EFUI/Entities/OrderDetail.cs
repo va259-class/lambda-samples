@@ -14,4 +14,7 @@ public class OrderDetail
 
     [ForeignKey(nameof(OrderID))]
     public Order Order { get; set; }
+
+    [ForeignKey(nameof(ProductID))]
+    public Product Product { get; set; }
 }
