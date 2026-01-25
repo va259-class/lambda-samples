@@ -30,6 +30,13 @@
         {
             dgvAll = new DataGridView();
             groupBox1 = new GroupBox();
+            label6 = new Label();
+            label4 = new Label();
+            nudStock = new NumericUpDown();
+            nudPrice = new NumericUpDown();
+            txtProductName = new TextBox();
+            label3 = new Label();
+            btnSaveProduct = new Button();
             cmbSuppliers = new ComboBox();
             label1 = new Label();
             btnCrticalStock = new Button();
@@ -42,13 +49,6 @@
             button8 = new Button();
             label2 = new Label();
             cmbCategories = new ComboBox();
-            btnSaveProduct = new Button();
-            label3 = new Label();
-            txtProductName = new TextBox();
-            nudPrice = new NumericUpDown();
-            nudStock = new NumericUpDown();
-            label4 = new Label();
-            label6 = new Label();
             groupBox2 = new GroupBox();
             btnSaveSupplier = new Button();
             txtCity = new TextBox();
@@ -61,10 +61,11 @@
             txtPhone = new TextBox();
             txtManager = new TextBox();
             txtCompany = new TextBox();
+            btnReadAndUpdate = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAll).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudPrice).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -96,6 +97,64 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ürün Bilgisi";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(6, 107);
+            label6.Name = "label6";
+            label6.Size = new Size(41, 15);
+            label6.TabIndex = 11;
+            label6.Text = "Miktar";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 63);
+            label4.Name = "label4";
+            label4.Size = new Size(32, 15);
+            label4.TabIndex = 9;
+            label4.Text = "Fiyat";
+            // 
+            // nudStock
+            // 
+            nudStock.Location = new Point(6, 125);
+            nudStock.Name = "nudStock";
+            nudStock.Size = new Size(188, 23);
+            nudStock.TabIndex = 8;
+            // 
+            // nudPrice
+            // 
+            nudPrice.Location = new Point(6, 81);
+            nudPrice.Name = "nudPrice";
+            nudPrice.Size = new Size(188, 23);
+            nudPrice.TabIndex = 7;
+            // 
+            // txtProductName
+            // 
+            txtProductName.Location = new Point(6, 37);
+            txtProductName.Name = "txtProductName";
+            txtProductName.Size = new Size(188, 23);
+            txtProductName.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 19);
+            label3.Name = "label3";
+            label3.Size = new Size(54, 15);
+            label3.TabIndex = 1;
+            label3.Text = "Ürün Adı";
+            // 
+            // btnSaveProduct
+            // 
+            btnSaveProduct.Location = new Point(119, 154);
+            btnSaveProduct.Name = "btnSaveProduct";
+            btnSaveProduct.Size = new Size(75, 23);
+            btnSaveProduct.TabIndex = 0;
+            btnSaveProduct.Text = "Kaydet";
+            btnSaveProduct.UseVisualStyleBackColor = true;
+            btnSaveProduct.Click += btnSaveProduct_Click;
             // 
             // cmbSuppliers
             // 
@@ -209,65 +268,9 @@
             cmbCategories.Size = new Size(169, 23);
             cmbCategories.TabIndex = 13;
             // 
-            // btnSaveProduct
-            // 
-            btnSaveProduct.Location = new Point(119, 154);
-            btnSaveProduct.Name = "btnSaveProduct";
-            btnSaveProduct.Size = new Size(75, 23);
-            btnSaveProduct.TabIndex = 0;
-            btnSaveProduct.Text = "Kaydet";
-            btnSaveProduct.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 19);
-            label3.Name = "label3";
-            label3.Size = new Size(54, 15);
-            label3.TabIndex = 1;
-            label3.Text = "Ürün Adı";
-            // 
-            // txtProductName
-            // 
-            txtProductName.Location = new Point(6, 37);
-            txtProductName.Name = "txtProductName";
-            txtProductName.Size = new Size(188, 23);
-            txtProductName.TabIndex = 2;
-            // 
-            // nudPrice
-            // 
-            nudPrice.Location = new Point(6, 81);
-            nudPrice.Name = "nudPrice";
-            nudPrice.Size = new Size(188, 23);
-            nudPrice.TabIndex = 7;
-            // 
-            // nudStock
-            // 
-            nudStock.Location = new Point(6, 125);
-            nudStock.Name = "nudStock";
-            nudStock.Size = new Size(188, 23);
-            nudStock.TabIndex = 8;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(6, 63);
-            label4.Name = "label4";
-            label4.Size = new Size(32, 15);
-            label4.TabIndex = 9;
-            label4.Text = "Fiyat";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(6, 107);
-            label6.Name = "label6";
-            label6.Size = new Size(41, 15);
-            label6.TabIndex = 11;
-            label6.Text = "Miktar";
-            // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnReadAndUpdate);
             groupBox2.Controls.Add(btnSaveSupplier);
             groupBox2.Controls.Add(txtCity);
             groupBox2.Controls.Add(label11);
@@ -294,6 +297,7 @@
             btnSaveSupplier.TabIndex = 29;
             btnSaveSupplier.Text = "Kaydet";
             btnSaveSupplier.UseVisualStyleBackColor = true;
+            btnSaveSupplier.Click += btnSaveSupplier_Click;
             // 
             // txtCity
             // 
@@ -375,6 +379,16 @@
             txtCompany.Size = new Size(133, 23);
             txtCompany.TabIndex = 19;
             // 
+            // btnReadAndUpdate
+            // 
+            btnReadAndUpdate.Location = new Point(38, 168);
+            btnReadAndUpdate.Name = "btnReadAndUpdate";
+            btnReadAndUpdate.Size = new Size(75, 23);
+            btnReadAndUpdate.TabIndex = 30;
+            btnReadAndUpdate.Text = "Kayıt Getir";
+            btnReadAndUpdate.UseVisualStyleBackColor = true;
+            btnReadAndUpdate.Click += btnReadAndUpdate_Click;
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -403,8 +417,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvAll).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudPrice).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -446,5 +460,6 @@
         private TextBox txtPhone;
         private TextBox txtManager;
         private TextBox txtCompany;
+        private Button btnReadAndUpdate;
     }
 }

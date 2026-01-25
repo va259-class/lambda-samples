@@ -1,3 +1,4 @@
+using Vektorel.EFUI.Entities;
 using Vektorel.EFUI.Models;
 
 namespace Vektorel.EFUI
@@ -73,7 +74,7 @@ namespace Vektorel.EFUI
         {
             using var context = new NorthwindContext();
             var orders = context.OrderDetails.GroupBy(g => g.Order.Employee.FirstName + " " + g.Order.Employee.LastName)
-                                             .Select(s => new EmployeeSaleDTO(s.Key, 
+                                             .Select(s => new EmployeeSaleDTO(s.Key,
                                                                               s.Sum(t => t.Quantity * t.UnitPrice)))
                                              .ToList();
             dgvAll.DataSource = orders;
@@ -85,13 +86,73 @@ namespace Vektorel.EFUI
             using var context = new NorthwindContext();
             var orders = context.OrderDetails.Where(f => f.Order.OrderDate.Year == 1998)
                                              .GroupBy(g => g.Product.Category.CategoryName)
-                                             .Select(s => new CategorySaleDTO(s.Key, 
+                                             .Select(s => new CategorySaleDTO(s.Key,
                                                                               s.Sum(t => t.UnitPrice * t.Quantity)))
                                              .ToList()
                                              .OrderByDescending(o => o.Total)
                                              .ToList();
 
             dgvAll.DataSource = orders;
+        }
+
+        private void btnSaveProduct_Click(object sender, EventArgs e)
+        {
+            using var context = new NorthwindContext();
+            var product = new Product
+            {
+                Name = txtProductName.Text,
+                Stock = (short)nudPrice.Value,
+                UnitPrice = nudPrice.Value,
+                CategoryID = (cmbCategories.SelectedItem as ComboBoxItem).Id,
+                SupplierID = (cmbSuppliers.SelectedItem as ComboBoxItem).Id
+            };
+
+            context.Products.Add(product);
+            context.SaveChanges();
+        }
+
+        private void btnSaveSupplier_Click(object sender, EventArgs e)
+        {
+            using var context = new NorthwindContext();
+            var supplier = new Supplier
+            {
+                CompanyName = txtCompany.Text,
+                Manager = txtManager.Text,
+                City = txtCity.Text,
+                Country = txtCountry.Text,
+                Phone = txtPhone.Text,
+            };
+            context.Suppliers.Add(supplier);
+            context.SaveChanges();
+        }
+
+        private bool isReadMode = true;
+        private void btnReadAndUpdate_Click(object sender, EventArgs e)
+        {
+            using var context = new NorthwindContext();
+            var supplier = context.Suppliers.First(f => f.Id == 1);
+            if (isReadMode)
+            {
+                txtCity.Text = supplier.City;
+                txtCountry.Text = supplier.Country;
+                txtPhone.Text = supplier.Phone;
+                txtCompany.Text = supplier.CompanyName;
+                txtManager.Text = supplier.Manager;
+                isReadMode = false;
+                btnReadAndUpdate.Text = "Güncelle";
+            }
+            else
+            {
+                supplier.Manager = txtManager.Text;
+                supplier.CompanyName = txtCompany.Text;
+                supplier.Country = txtCountry.Text;
+                supplier.City = txtCity.Text;
+                supplier.Phone = txtPhone.Text;
+
+                context.Suppliers.Update(supplier);
+                context.SaveChanges();
+                isReadMode = true;
+            }
         }
     }
 }

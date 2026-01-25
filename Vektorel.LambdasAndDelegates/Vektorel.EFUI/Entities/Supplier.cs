@@ -8,7 +8,7 @@ public class Supplier
     [Column("SupplierId")]
     public int Id { get; set; }
     public string CompanyName { get; set; }
-    [Column("ContactTitle")]
+    [Column("ContactName")]
     public string Manager { get; set; }
     public string Country { get; set; }
     public string City { get; set; }
