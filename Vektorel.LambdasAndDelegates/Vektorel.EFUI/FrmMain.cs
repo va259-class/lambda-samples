@@ -40,5 +40,34 @@ namespace Vektorel.EFUI
                                            .ToList();
             dgvAll.DataSource = products;
         }
+
+        private void btnUSASuppliers_Click(object sender, EventArgs e)
+        {
+            using var context = new NorthwindContext();
+            var suppliers = context.Suppliers.Where(s => s.Country == "USA")
+                                             .Select(s => new SupplierListDTO(s.CompanyName, s.Country, s.City, s.Phone))
+                                             .ToList();
+            dgvAll.DataSource = suppliers;
+        }
+
+        private void btnProductInfo_Click(object sender, EventArgs e)
+        {
+            // Ürün Adý - Tipi - Tedarikçisi
+            using var context = new NorthwindContext();
+            var products = context.Products.Select(s => new ProductInfoListDTO(s.Name, s.Category.CategoryName, s.Supplier.CompanyName))
+                                           .ToList();
+            dgvAll.DataSource = products;
+        }
+
+        private void btnEmployeeSales_Click(object sender, EventArgs e)
+        {
+            using var context = new NorthwindContext();
+            var orders = context.OrderDetails.GroupBy(g => g.Order.Employee.FirstName + " " + g.Order.Employee.LastName)
+                                             .Select(s => new EmployeeSaleDTO(s.Key, s.Sum(t => t.Quantity * t.UnitPrice)))
+                                             .ToList();
+            dgvAll.DataSource = orders;
+        }
     }
 }
+
+//CQRS

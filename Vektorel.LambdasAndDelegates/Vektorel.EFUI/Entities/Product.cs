@@ -14,7 +14,11 @@ public class Product
     public short Stock { get; set; }
 
     public int? CategoryID { get; set; }
+    public int? SupplierID { get; set; }
 
     [ForeignKey(nameof(CategoryID))]
     public Category Category { get; set; } //Navigation Property
+
+    [ForeignKey(nameof(SupplierID))]
+    public Supplier Supplier { get; set; } //Navigation Property
 }

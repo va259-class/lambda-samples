@@ -34,10 +34,10 @@
             label1 = new Label();
             btnCrticalStock = new Button();
             btnBeverages = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnUSASuppliers = new Button();
+            btnProductInfo = new Button();
             button5 = new Button();
-            button6 = new Button();
+            btnEmployeeSales = new Button();
             button7 = new Button();
             button8 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAll).BeginInit();
@@ -102,23 +102,25 @@
             btnBeverages.UseVisualStyleBackColor = true;
             btnBeverages.Click += btnBeverages_Click;
             // 
-            // button3
+            // btnUSASuppliers
             // 
-            button3.Location = new Point(140, 446);
-            button3.Name = "button3";
-            button3.Size = new Size(122, 23);
-            button3.TabIndex = 6;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            btnUSASuppliers.Location = new Point(140, 446);
+            btnUSASuppliers.Name = "btnUSASuppliers";
+            btnUSASuppliers.Size = new Size(122, 23);
+            btnUSASuppliers.TabIndex = 6;
+            btnUSASuppliers.Text = "ABD Tedarikçileri";
+            btnUSASuppliers.UseVisualStyleBackColor = true;
+            btnUSASuppliers.Click += btnUSASuppliers_Click;
             // 
-            // button4
+            // btnProductInfo
             // 
-            button4.Location = new Point(140, 475);
-            button4.Name = "button4";
-            button4.Size = new Size(122, 23);
-            button4.TabIndex = 7;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            btnProductInfo.Location = new Point(140, 475);
+            btnProductInfo.Name = "btnProductInfo";
+            btnProductInfo.Size = new Size(122, 23);
+            btnProductInfo.TabIndex = 7;
+            btnProductInfo.Text = "Ürün Tipi Tedarikçisi";
+            btnProductInfo.UseVisualStyleBackColor = true;
+            btnProductInfo.Click += btnProductInfo_Click;
             // 
             // button5
             // 
@@ -129,14 +131,15 @@
             button5.Text = "button5";
             button5.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnEmployeeSales
             // 
-            button6.Location = new Point(268, 446);
-            button6.Name = "button6";
-            button6.Size = new Size(122, 23);
-            button6.TabIndex = 8;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
+            btnEmployeeSales.Location = new Point(268, 446);
+            btnEmployeeSales.Name = "btnEmployeeSales";
+            btnEmployeeSales.Size = new Size(122, 23);
+            btnEmployeeSales.TabIndex = 8;
+            btnEmployeeSales.Text = "Çalışan Satışları";
+            btnEmployeeSales.UseVisualStyleBackColor = true;
+            btnEmployeeSales.Click += btnEmployeeSales_Click;
             // 
             // button7
             // 
@@ -164,9 +167,9 @@
             Controls.Add(button7);
             Controls.Add(button8);
             Controls.Add(button5);
-            Controls.Add(button6);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(btnEmployeeSales);
+            Controls.Add(btnProductInfo);
+            Controls.Add(btnUSASuppliers);
             Controls.Add(btnBeverages);
             Controls.Add(btnCrticalStock);
             Controls.Add(label1);
@@ -191,10 +194,10 @@
         private Label label1;
         private Button btnCrticalStock;
         private Button btnBeverages;
-        private Button button3;
-        private Button button4;
+        private Button btnUSASuppliers;
+        private Button btnProductInfo;
         private Button button5;
-        private Button button6;
+        private Button btnEmployeeSales;
         private Button button7;
         private Button button8;
     }
